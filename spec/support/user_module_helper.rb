@@ -21,10 +21,12 @@ module UserModuleHelper
   end
 
   def edit_profile
+    find("a", text: "Welcome").click()
+    sleep 2
     find("a", text: "Profile").click()
   end
 
-  def update_profile_attributes(user, username ,password = nil, confirm_password = nil)
+  def update_profile_attributes(user, password = nil, confirm_password = nil)
     fill_in "user_email", with: user.email
     fill_in "user_username", with: user.username
     if !password.nil?
@@ -43,5 +45,4 @@ module UserModuleHelper
   def click_signup
     click_button 'Sign up'
   end
-
 end

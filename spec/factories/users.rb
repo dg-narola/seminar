@@ -4,6 +4,7 @@ FactoryGirl.define do
       "example#{n}@example.com"
     end
     password "password"
+    password_confirmation "password"
     username "dharani"
     # confirmed_at Time.zone.now
     # current_sign_in_at Time.zone.now
