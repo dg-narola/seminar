@@ -19,6 +19,7 @@ require 'shoulda/matchers'
 
 selenium_url = "http://localhost:3002/wd/hub"
 
+#use :chrome instead of :selenium_remote
 Capybara.register_driver :selenium_remote do |app|
   options = ::Selenium::WebDriver::Chrome::Options.new
 
@@ -31,8 +32,8 @@ Capybara.register_driver :selenium_remote do |app|
       { url: selenium_url, browser: :chrome, options: options })
 end
 
-Capybara.server = :webrick
-Capybara.javascript_driver = :selenium_remote
+Capybara.server = :webrick #puma
+Capybara.javascript_driver = :selenium_remote #:chrome
 
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
