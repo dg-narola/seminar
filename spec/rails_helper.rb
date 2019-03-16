@@ -21,7 +21,7 @@ selenium_url = "http://localhost:3002/wd/hub"
 
 #use :chrome instead of :selenium_remote
 Capybara.register_driver :selenium_remote do |app|
-  options = ::Selenium::WebDriver::Chrome::Options.new
+  options = ::Selenium::WebDriver::Chrome.driver_path::Options.new
 
   options.add_argument('--headless')
   options.add_argument('--no-sandbox')
