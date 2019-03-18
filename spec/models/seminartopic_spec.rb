@@ -12,7 +12,7 @@ RSpec.describe Seminartopic, type: :model do
   }
 
   describe "associations" do
-    it { expect(seminartopis).to belong_to :user }
+    it { expect(seminartopics).to belong_to :user }
   end
 
   describe "validations" do

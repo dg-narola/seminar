@@ -5,7 +5,7 @@ RSpec.describe User, type: :model do
   let(:user) { FactoryGirl.create(:user) }
 
   describe "associations" do
-    it { expect(user).to have_many :seminartopic }
+    it { expect(user).to have_many :seminartopics }
   end
 
   describe "validations" do

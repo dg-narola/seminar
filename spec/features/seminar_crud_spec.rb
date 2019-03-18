@@ -5,49 +5,12 @@ RSpec.describe "User", type: :feature do
   include UserModuleHelper
 
   let(:user){create(:user)}
-
-  describe "Sign up" do
-    before do
-      sign_up_user("test@example", "test_example", "password")
-    end
-
-    it "successfully" do
-      sleep 1
-      expect(current_path).to eq('/')
-    end
-  end
-
-  describe "Login" do
-    before do
-      login_user(user.email, user.password)
-    end
-
-    it "successfully" do
-      sleep 2
-      expect(current_path).to eq('/')
-      expect(page).to have_css('h1', text: 'Seminartopics')
-    end
-  end
-
-  describe "User Profile" do
-    before do
-      login_user(user.email, user.password)
-    end
-
-    it "edits profile with out changing password" do
-      edit_profile
-      sleep 2
-      expect(page).to have_field('user_email')
-      update_profile_attributes(user)
-      sleep 2
-      expect(current_path).to eq('/users')
-    end
+  before do
+   login_user(user.email, user.password )
   end
 
   describe "New" do
     before do
-     login_user(user.email, user.password )
-     sleep 2
      new_seminar
      sleep 2
      new_topic("title", "description", "dhafrsg")
@@ -61,8 +24,6 @@ RSpec.describe "User", type: :feature do
 
   describe "Edit" do
     before do
-      login_user(user.email, user.password )
-      sleep 2
       new_topic("title", "description", "dhafrsg")
       sleep 2
       edit_seminar
@@ -78,8 +39,6 @@ RSpec.describe "User", type: :feature do
 
   describe "Show" do
     before do
-      login_user(user.email, user.password )
-      sleep 2
       new_topic("title", "description", "dhafrsg")
       sleep 2
       show_seminar
@@ -95,8 +54,6 @@ RSpec.describe "User", type: :feature do
 
   describe "Delete" do
     before do
-      login_user(user.email, user.password )
-      sleep 2
       new_topic("title", "description", "dhafrsg")
       sleep 2
       delete_seminar
