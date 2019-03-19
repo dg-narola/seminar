@@ -47,6 +47,8 @@ module UserModuleHelper
   end
 
   def new_seminar
+    find("a", text: "Back").click()
+    sleep 2
     find("a", text: "New Seminartopic").click()
   end
 
