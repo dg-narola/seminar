@@ -1,0 +1,18 @@
+%center
+  %h1{style: "color:blue;"}
+    %center Seminartopic
+  %p
+    %strong Title:
+    = @seminartopic.title
+  %p
+    %strong Descripton:
+    = @seminartopic.descripton
+  %p
+    %strong Studentname:
+    = @seminartopic.studname
+  %p
+    %strong User:
+    = User.find_by_id(@seminartopic.user_id).try(:username)
+  = link_to 'Edit', edit_seminartopic_path(@seminartopic), class: "btn btn-success"
+  |
+  = link_to 'Back', seminartopics_path, class: "btn btn-success"

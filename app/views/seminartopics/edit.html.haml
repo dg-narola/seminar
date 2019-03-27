@@ -1,0 +1,6 @@
+%center
+  %h1{style: "color:blue;"} Editing Seminartopic
+  = render 'form', seminartopic: @seminartopic
+  = link_to 'Show', @seminartopic, class: "btn btn-success"
+  |
+  \#{link_to 'Back', seminartopics_path, class: "btn btn-success"}

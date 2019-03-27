@@ -9,7 +9,7 @@ gem 'bootstrap-sass', '~> 3.3.5.1'
 
 gem 'jquery-rails'
 
-gem 'letter_opener'
+gem 'haml'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'

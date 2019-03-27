@@ -1,0 +1,22 @@
+= form_with(model: seminartopic, local: true) do |form|
+  - if seminartopic.errors.any?
+    #error_explanation.form-group
+      %h2
+        = pluralize(seminartopic.errors.count, "error")
+        prohibited this seminartopic from being saved:
+      %ul
+        - seminartopic.errors.full_messages.each do |message|
+          %li= message
+  .form-group
+    = form.label :title
+    = form.text_field :title, autofocus: true, class: "form-control"
+  .form-group
+    = form.label :descripton
+    = form.text_field :descripton, autofocus: true, class: "form-control"
+  .form-group
+    = form.label :StudentName
+    = form.text_field :studname, autofocus: true, class: "form-control"
+  .form-group
+    = form.hidden_field :user_id, value:current_user.id
+  .actions
+    = form.submit class:"btn btn-primary"

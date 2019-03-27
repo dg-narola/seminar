@@ -1,0 +1,28 @@
+%h1{style: "color:blue;"}
+  %center Seminartopics
+%br/
+%table.table.table-bordered.table-stripped
+  %thead
+    %tr
+      %th Title
+      %th Descripton
+      %th Username
+      %th Studentname
+      %th{colspan: "3"}
+        %center Actions
+  %tbody
+    - @seminartopics.each do |seminartopic|
+      %tr
+        %td= seminartopic.title
+        %td= seminartopic.descripton
+        %td= User.find_by_id(seminartopic.user_id).try(:username)
+        %td= seminartopic.try(:studname)
+        %td= link_to 'Show', seminartopic, class: "btn btn-primary"
+        %td= link_to 'Edit', edit_seminartopic_path(seminartopic), |
+            class: "btn btn-primary"                              |
+        %td
+          = link_to 'Destroy', seminartopic, method: :delete, data: |
+            { confirm: 'Are you sure?' }, class: "btn btn-danger"   |
+.pull-right
+  = link_to 'New Seminartopic', new_seminartopic_path, |
+    class: "btn btn-success"                           |
