@@ -3,9 +3,10 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   p "-------User-------"
   let(:user) { FactoryGirl.create(:user) }
+  let(:seminartopic) { FactoryGirl.create(:seminartopic) }
 
   describe "associations" do
-    it { expect(user).to have_many :seminartopics }
+    it { expect(user).to have_many :seminartopic }
   end
 
   describe "validations" do

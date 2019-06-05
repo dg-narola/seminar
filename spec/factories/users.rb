@@ -5,7 +5,9 @@ FactoryGirl.define do
     end
     password "password"
     password_confirmation "password"
-    username "dharani"
+    sequence(:username) do |n|
+      "dharani#{n}"
+    end
     # confirmed_at Time.zone.now
     # current_sign_in_at Time.zone.now
   end

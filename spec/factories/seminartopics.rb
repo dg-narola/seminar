@@ -1,9 +1,8 @@
 FactoryGirl.define do
-  factory :seminartopics do
+  factory :seminartopic do
     title "title"
     descripton "seminar"
     studname "dharani"
-
-    association :user
+    association :user,factory: :user
   end
 end
